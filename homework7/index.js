@@ -17,15 +17,8 @@ const myArr = ['Hello', 'World', 23, '23', null];
 const myArg = 'Artem';
 
 const filterBy = function (myArr, myArg) {
-    const filterByArr = [];
-
-    myArr.forEach(item => {
-        if(typeof item !== typeof myArg)
-            filterByArr.push(item)
-    });
-    console.log(filterByArr);
-
-    return filterByArr;
+    return myArr.filter(item => typeof item !== typeof myArg);
 };
 
-filterBy(myArr, myArg);
+console.log(filterBy(myArr, myArg));
+
