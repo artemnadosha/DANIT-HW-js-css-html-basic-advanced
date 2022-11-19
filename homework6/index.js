@@ -15,35 +15,101 @@
 
 const REGULAR_WORD = /\d/g;
 
-const createNewUser = function () {
-    let firstName = prompt('Как вас зовут?');
-    let lastName = prompt('Какая у вас фамилия?');
-    let birthday;
+let firstName = prompt('Как вас зовут?');
+let lastName = prompt('Какая у вас фамилия?');
+let birthday;
 
-    const checkNumberName = function () {
-        if (REGULAR_WORD.test(firstName) || !firstName) {
-            firstName = prompt('Введите имя правильно!');
 
-            checkNumberName();
-        }
+const checkNumberName = function () {
+    if (REGULAR_WORD.test(firstName) || !firstName) {
+        firstName = prompt('Введите имя правильно!');
 
-        return firstName;       
+        checkNumberName();
+    }
+
+    return firstName;
+};
+
+checkNumberName();
+
+
+const checkNumberLastName = function () {
+    if (REGULAR_WORD.test(lastName) || !lastName) {
+        lastName = prompt('Введите фамилию правильно!');
+
+        checkNumberLastName();
     };
 
-    checkNumberName();
+    return lastName;
+};
 
-    const checkNumberLastName = function () {
-        if (REGULAR_WORD.test(lastName) || !lastName) {
-            lastName = prompt('Введите фамилию правильно!');
+checkNumberLastName();
 
-            checkNumberLastName();
+
+const createSetMethods = (user) => {
+    user.setFirstName = function (newName) {
+        Object.defineProperty(user, 'firstName', {
+            value: newName,
+        });
+
+        return newName;
+    };
+
+    user.setLastName = function (newLastName) {
+        Object.defineProperty(user, 'lastName', {
+            value: newLastName,
+        });
+
+        return newLastName;
+    };
+
+    user.setBirthday = function (date) {
+        if (!date) {
+            return 'Введите дату рождения'
+        } else {
+            Object.defineProperty(user, 'birthday',{
+                value:date,
+            });
         };
 
-        return lastName;
+        return date;
+    };
+};
+
+
+const createGetMethods = (user) => {
+    let myDate = user.birthday.split('.');
+    const[day, month, year] = myDate;
+
+    user.getLogin = function () {
+        if (!user.firstName || !user.lastName) {
+            return 'error';
+        }
+        return user.firstName[0].toLowerCase() + user.lastName.toLowerCase()
     };
 
-    checkNumberLastName();
-    
+    user.getAge = function () {
+        if(!user.birthday) {
+            return 'Дата Рождения не указана'
+        } else {
+            const today = new Date();
+            const myBirthDay = new Date(`${month}.${day}.${year}`);
+            return Math.round((today - myBirthDay) / (1000 * 3600 * 24 * 30 * 12));
+        };
+    };
+
+    user.getPassword = function () {
+        if(!user.birthday){
+            return 'Дата рождения не указана'
+        } else {
+            return user.firstName[0].toUpperCase() + user.lastName.toLowerCase() + year;
+        };
+    };
+};
+
+
+const createNewUser = function (firstName,lastName) {
+
     const newUser = {};
 
     Object.defineProperty(newUser, 'firstName', {
@@ -64,68 +130,14 @@ const createNewUser = function () {
         configurable: true,
     });
 
-    newUser.getLogin = function () {
-        if (!this.firstName || !this.lastName) {
-            return 'error';
-        }
-            return this.firstName.slice(0, 1).toLowerCase() + this.lastName.toLowerCase()
-        };
-    
-    newUser.getAge = function () {
-        if(!this.birthday) {
-            return 'Дата Рождения не указана'
-        } else {
-            let myDate = this.birthday.split('.');
-            const[day, month, year] = myDate;
-            
-            const today = new Date();
-            const myBirthDay = new Date(`${month}.${day}.${year}`);
-            const age = Math.round((today - myBirthDay) / (1000 * 3600 * 24 * 30 * 12)); 
-        
-            return age;
-        };
-    };
+    createSetMethods(newUser);
 
-    newUser.getPassword = function () {
-        if(!this.birthday){
-            return 'Дата рождения не указана'
-        } else {
-            let myDate = this.birthday.split('.');
-            const[day, month, year] = myDate;
-            const password = this.firstName[0].toUpperCase() + this.lastName.toLowerCase() + year;
-            
-            return password; 
-        };
-    };
-
-    newUser.setFirstName = function (newName) {
-        Object.defineProperty(newUser, 'firstName', {
-            value: newName,
-        });
-    };
-    
-    newUser.setLastName = function (newLastName) {
-        Object.defineProperty(newUser, 'lastName', {
-            value: newLastName,
-        });
-    };
-
-    newUser.setBirthday = function (date) {
-        if (!date) {
-            return 'Введите дату рождения'
-        } else {
-            Object.defineProperty(newUser, 'birthday',{
-                value:date,
-            });
-        };
-
-        return date;
-    };
+    createGetMethods(newUser);
 
     return newUser;     
 };
 
-const newUser = createNewUser();
+const newUser = createNewUser(firstName, lastName);
 
 console.log(newUser.getLogin());
 
