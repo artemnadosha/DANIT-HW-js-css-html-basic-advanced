@@ -78,30 +78,35 @@ const createSetMethods = (user) => {
 
 
 const createGetMethods = (user) => {
-    let myDate = user.birthday.split('.');
-    const[day, month, year] = myDate;
+    let myDate;
 
     user.getLogin = function () {
         if (!user.firstName || !user.lastName) {
             return 'error';
-        }
-        return user.firstName[0].toLowerCase() + user.lastName.toLowerCase()
+        };
+
+        return user.firstName[0].toLowerCase() + user.lastName.toLowerCase();
     };
 
     user.getAge = function () {
         if(!user.birthday) {
-            return 'Дата Рождения не указана'
+            return 'Дата Рождения не указана';
         } else {
+            myDate = user.birthday.split('.');
+            const[day, month, year] = myDate;
             const today = new Date();
             const myBirthDay = new Date(`${month}.${day}.${year}`);
+
             return Math.round((today - myBirthDay) / (1000 * 3600 * 24 * 30 * 12));
         };
     };
 
     user.getPassword = function () {
         if(!user.birthday){
-            return 'Дата рождения не указана'
+            return 'Дата рождения не указана';
         } else {
+            myDate = user.birthday.split('.');
+            const[day, month, year] = myDate;
             return user.firstName[0].toUpperCase() + user.lastName.toLowerCase() + year;
         };
     };
