@@ -14,10 +14,10 @@
 
 
 const myArr = ['Hello', 'World', 23, '23', null];
-const myArg = 'Artem';
+const myArg = 'string';
 
 const filterBy = function (myArr, myArg) {
-    return myArr.filter(item => typeof item !== typeof myArg);
+    return myArr.filter(item => typeof item !== myArg);
 };
 
 console.log(filterBy(myArr, myArg));
