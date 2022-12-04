@@ -1,6 +1,6 @@
-const centeredContent = document.querySelector('.centered-content')
-const tabs = centeredContent.querySelector('.tabs')
-const tabsContent = centeredContent.querySelector('.tabs-content')
+const centeredContent = document.querySelector('.centered-content');
+const tabs = centeredContent.querySelector('.tabs');
+const tabsContent = centeredContent.querySelector('.tabs-content');
 
 tabs.addEventListener('click', item => {
     [...tabs.children].forEach(item => item.classList.remove('active'));
@@ -31,7 +31,12 @@ const setDataAtr = (tabsContent, textTabs) => {
 
 setDataAtr(tabsContent, textTabs);
 
-[...tabsContent.children].forEach(item => item.style.display = 'none');
+[...tabsContent.children].forEach(item => {
+    item.style.display = 'none';
+    item.style.width = '420px';
+    item.style.border = '1px solid black';
+    item.style.padding = '10px';
+});
 
 
 
