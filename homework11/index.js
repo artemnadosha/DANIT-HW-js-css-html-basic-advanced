@@ -50,7 +50,7 @@ firstInput.addEventListener('keyup', e => {
 
     const checkLitterUp = /[A-Z]/g.test(e.target.value);
     const checkLitterDown = /[a-z]/g.test(e.target.value);
-    const ckeckLength = e.target.value.length >= 8;
+    const checkLength = e.target.value.length >= 8;
     const checkNumber = /[0-9]/g.test(e.target.value)
 
    if(checkNumber) {
@@ -71,13 +71,13 @@ firstInput.addEventListener('keyup', e => {
         validList.querySelector('[data-text=small]').style.color = 'red';
     };
 
-    if(ckeckLength) {
+    if(checkLength) {
         validList.querySelector('[data-text=length]').style.color = 'green';
     } else {
         validList.querySelector('[data-text=length]').style.color = 'red';
     };
 
-    if(checkLitterUp && checkLitterDown && ckeckLength && checkNumber) {
+    if(checkLitterUp && checkLitterDown && checkLength && checkNumber) {
             buttonSubmit.disabled = false;
         } else {
             buttonSubmit.disabled = true;
