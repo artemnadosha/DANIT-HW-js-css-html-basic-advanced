@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+.timer {
+    margin: 20px;
+    padding: 0;
+    font-size: 30px;
+    text-align: center;
+}
+.image-to-show {
+    display: none;
+    width: 400px;
+    height: 400px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.images-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+}
+.active {
+    display: flex;
+    animation: Opacity 1s running;
+    animation-fill-mode: both;
+}
+
+.button {
+    padding: 20px;
+    font-size: 25px;
+}
+.app {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@keyframes Opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

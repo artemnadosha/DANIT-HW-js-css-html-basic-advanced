@@ -1,4 +1,4 @@
-const buttonWrapper = document.querySelector('.btn-wrapper')
+const buttonWrapper = document.querySelector('.btn-wrapper');
 const allButton = buttonWrapper.querySelectorAll('button');
 document.body.addEventListener('keydown', e => {
     allButton.forEach(el => {
