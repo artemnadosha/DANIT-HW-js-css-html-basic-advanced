@@ -9,15 +9,26 @@ body {
 .wrapper {
     display: flex;
     flex-direction: column;
-    font-size: 40px;
-    gap: 10px;
+    font-size: 30px;
+    gap: 20px;
     text-transform: uppercase;
+    text-align: center;
+}
+.label-name {
+    margin-bottom: 20px;
+    font-size: 40px;
 }
 
 input {
     padding: 20px;
     font-size: 20px;
     text-align: center;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .wrapper-result {
@@ -31,4 +42,5 @@ input {
 
 .result {
     color: red;
+    font-size: 50px;
 }
