@@ -1,0 +1,90 @@
+@import "./fonts/fonts";
+@import "./components/variables";
+@import "./components/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto',sans-serif;
+  font-style: normal;
+  list-style: none;
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  min-width: $size-media-small;
+  max-width: $size-media-medium;
+  display: flex;
+  flex-direction: column;
+
+
+  @include mediaMedium {
+    min-width: $size-media-medium;
+  }
+
+
+  @include mediaLarge {
+    min-width: $size-media-large;
+  }
+
+}
+
+.footer {
+  & .container  {
+    min-width: 303px;
+    max-width: 303px;
+
+
+    @include mediaMedium {
+      min-width: 684px;
+      max-width: 684px;
+    }
+  }
+}
+
+.font-size-small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.font-size-medium {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.font-size-large {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.style-uppercase {
+  text-transform: uppercase;
+}
+
+.text-color-gray {
+  color: #4E4E4E;
+}
+
+.text-color-gray-footer {
+  color: #B9B9B9;
+}
+
+
+.text-color-white {
+  color: #FEFEFE;;
+}
+
+@import "./components/header";
+@import "./components/main";
+@import "./components/footer";
