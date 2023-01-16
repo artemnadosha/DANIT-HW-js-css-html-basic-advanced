@@ -98,7 +98,7 @@
 
 .header-bg {
   width: 100%;
-  height: 150px;
+  min-height: 150px;
   background-image: url(../img/header.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -106,11 +106,11 @@
 
 
   @include mediaMedium {
-    height: 361px;
+    min-height: 361px;
   }
 
 
   @include  mediaLarge {
-    height: 550px;
+    min-height: 550px;
   }
 }
