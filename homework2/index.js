@@ -5,17 +5,14 @@
  */
 
 import { books } from "./dataBooks.js";
+import {createElement} from "./createItemElement.js";
 
 const rootElement = document.querySelector("#root");
 
 const createList = document.createElement("ul");
 createList.classList.add("list");
 rootElement.append(createList);
-const createElement = (item) => `<li>
-<h2>Имя автора: ${item.author}</h2>
-<h2>Название Книги: ${item.name}</h2>
-<h2>Цена: ${item.price}</h2>
-</li>`;
+
 books.forEach((item) => {
   try {
     if (!!item.author && !!item.name && !!item.price) {
@@ -23,19 +20,11 @@ books.forEach((item) => {
       list.innerHTML += createElement(item);
     }
 
-    switch (false) {
-      case !!item.author:
-        throw Error(`${item.name} нету Author`);
-        break;
-      case !!item.name:
-        throw Error(
-          `У этого автора ${item.author || item.name} нету названия в книге`
-        );
-        break;
-      case !!item.price:
-        throw Error(`У книги ${item.name || item.author} не указана цена`);
-        break;
-    }
+    ['author','name','price'].forEach((property) => {
+      if(!item.hasOwnProperty(property)) {
+        throw Error(`У этой колекции нету ${property}`)
+      }
+    })
   } catch (error) {
     console.log(error);
   }
