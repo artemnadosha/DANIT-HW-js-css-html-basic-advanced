@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5e6e7a;
+}
+
+button {
+    font-size: 20px;
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    width: 300px;
+}
+
+li {
+    padding: 5px;
+    font-size: 40px;
+    color: white;
+    margin-left: 30px;
+}
