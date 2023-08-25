@@ -1,5 +1,5 @@
 // Получаем имя папки проекта
-import * as nodePath from 'path'
+import * as nodePath from 'HW-advanced-html/homework2/gulp/config/path.js'
 const rootFolder = nodePath.basename(nodePath.resolve())
 
 const buildFolder = `./dist`

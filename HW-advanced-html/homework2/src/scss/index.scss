@@ -1,6 +1,6 @@
-@import "./fonts/fonts";
-@import "./components/variables";
-@import "./components/mixins";
+@import "fonts";
+@import "variables";
+@import "mixins";
 
 * {
   margin: 0;
@@ -85,6 +85,6 @@
   color: #FEFEFE;;
 }
 
-@import "./components/header";
-@import "./components/main";
-@import "./components/footer";
+@import "header";
+@import "main";
+@import "footer";
