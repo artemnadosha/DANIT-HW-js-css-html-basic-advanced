@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #26160B;
-    background-image: url(../img/background.png);
+    background-image: url(background.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
 }
 
 .active-bg-sun {
-    background-image: url(../img/bg-sun.jpg);
+    background-image: url(bg-sun.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -142,7 +142,7 @@
 }
 
 .bg-item-1 {
-    background-image: url(../img/image-5.png);
+    background-image: url(image-5.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 309px;
@@ -150,7 +150,7 @@
 }
 
 .bg-item-2 {
-    background-image: url(../img/image-4.png);
+    background-image: url(image-4.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 309px;
@@ -158,7 +158,7 @@
 }
 
 .bg-item-3 {
-    background-image: url(../img/image-3.png);
+    background-image: url(image-3.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 309px;
@@ -166,7 +166,7 @@
 }
 
 .bg-item-4 {
-    background-image: url(../img/image-2.png);
+    background-image: url(image-2.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 309px;
@@ -174,7 +174,7 @@
 }
 
 .bg-item-5 {
-    background-image: url(../img/image-1.png);
+    background-image: url(image-1.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 309px;
@@ -182,7 +182,7 @@
 }
 
 .bg-item-6 {
-    background-image: url(../img/image.png);
+    background-image: url(image.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 309px;
@@ -249,7 +249,7 @@
 
 .card-detalis::after {
     content: '';
-    background-image: url(../img/arrow.svg);
+    background-image: url(arrow.svg);
     background-size: cover;
     width: 5px;
     height: 10px;
