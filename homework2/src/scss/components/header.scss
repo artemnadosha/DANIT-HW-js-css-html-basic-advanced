@@ -1,0 +1,125 @@
+.header {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  user-select: none;
+
+  @media (max-width: 1170px) {
+    padding: 0 5%;
+  }
+  @media (max-width: 768px) {
+    padding: 0 2%;
+  }
+
+}
+.wrapper-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 23px 0;
+
+
+  @include mediaMedium {
+    margin: 40px 0;
+    align-items: center;
+  }
+}
+
+.burger-menu{
+  display: block;
+  width: 44px;
+  height: 37px;
+  background-color: black;
+  background-image: url(../img/burgerOFF.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.active {
+    background-image: url(../img/burgerON.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+
+  @include mediaMedium {
+    display: none;
+  }
+}
+
+.navbar-list {
+  width: 50%;
+  display: none;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  position: absolute;
+  top: 60px;
+
+  &.active {
+    display: flex;
+  }
+
+
+  @include mediaMedium {
+    min-width: $size-media-medium;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    background-color: transparent;
+    gap: 37px;
+  }
+
+
+  @include  mediaLarge {
+    min-width: $size-media-large;
+    gap: 68px;
+  }
+}
+
+.navbar-link {
+  display: block;
+  align-items: center;
+  letter-spacing: 1.1px;
+  color: #4E4E4E;
+  padding: 6px 0 6px 13px;
+  border-left: 2px solid white;
+
+  &:hover {
+    color: #57A4A4;
+    background-color: #E5E5E5;
+    border-left: 2px solid #E5E5E5;
+  }
+
+
+  @include mediaMedium {
+    padding: 0;
+    border: none;
+
+
+    &:hover{
+      color: #57A4A4;
+      background-color: transparent;
+      border: none;
+    }
+  }
+}
+
+.header-bg {
+  width: 100%;
+  min-height: 150px;
+  background-image: url(../img/header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+
+  @include mediaMedium {
+    min-height: 361px;
+  }
+
+
+  @include  mediaLarge {
+    min-height: 550px;
+  }
+}
